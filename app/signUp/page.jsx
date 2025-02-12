@@ -40,7 +40,6 @@ export default function page() {
          }
       }
       
-      
       setAccounts(prev => [...prev, {
          email: emailData,
          username: usernameData,
