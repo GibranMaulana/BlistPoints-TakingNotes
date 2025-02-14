@@ -3,10 +3,12 @@ import Header from '../components/Header';
 import Footer from '../components/Footer';
 import { useAccounts } from '../context/AccountContext';
 import { useRouter } from 'next/navigation';
+import { useCurrentUser } from '../context/CurrentUserContext';
 
 export default function Page() {
    const router = useRouter();
-   const {accounts} = useAccounts()
+   const { accounts } = useAccounts();
+   const { setCurrentUser } = useCurrentUser();
 
    function handleSubmit (event) {
       event.preventDefault();
@@ -15,6 +17,7 @@ export default function Page() {
       const passwordData = formData.get("passwordInput");
       for (let i = 0; i < accounts.length; i++) {
          if (accounts[i].username == usernameData && accounts[i].password == passwordData) {
+            setCurrentUser(usernameData);
             router.push("/mainMenu");
             return
          } 

@@ -6,7 +6,7 @@ const CurrentUserContext = createContext();
 
 export function CurrentUserProvider({ children }) {
 
-   const [currentUser, setCurrentUser] = useState("Guest");
+   const [currentUser, setCurrentUser] = useState(false);
 
    return (
 
